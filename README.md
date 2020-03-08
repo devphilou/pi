@@ -36,7 +36,7 @@ Model           : Raspberry Pi Model B Rev 2
 4. Check docker version and info: `docker version` and `docker info`
 5. Test docker: `docker run hello-world`
 
-### Further dependencies dependency handling and [docker compose](https://docs.docker.com/compose/)
+### Further dependency handling and [docker compose](https://docs.docker.com/compose/)
 1. `sudo apt-get install libffi-dev`
 2. `sudo apt-get remove python-configparser`
 3. `sudo pip install docker-compose`

@@ -1,4 +1,4 @@
-# [Raspberry Pi](https://www.raspberrypi.org/) with [Docker](https://www.docker.com/why-docker)
+# [Raspberry Pi](https://www.raspberrypi.org/) Playground
 
 ## Hardware
 * Raspberry Pi
@@ -29,14 +29,21 @@ Model           : Raspberry Pi Model B Rev 2
 3. Improve [SSH security](https://www.raspberrypi.org/documentation/configuration/security.md) adding new user and remove pi user
 4. Update packages: `pi@pi:~$ sudo apt-get update && sudo apt-get upgrade`
 
-## Docker
-1. Installation script: `curl -sSL https://get.docker.com | sh`
-2. Add permission to USER: `sudo usermod -aG docker USER`
-3. Reboot system
-4. Check docker version and info: `docker version` and `docker info`
-5. Test docker: `docker run hello-world`
+## [PostgreSQL](https://www.postgresql.org/)
+1. Install packages: `pi@pi:~$ sudo apt install postgresql libpq-dev postgresql-client postgresql-client-common -y`
+2. Switch to postgres user: `pi@pi:~$ sudo su postgres`
+3. Create new user: `postgres@raspberrypi:/home/pi$ createuser YOUR_NEW_USER -P --interactive`
+    - enter password
+    - **n** for superuser
+    - **y** for the last two options (create database / new roles)
+4. Connect to postgres: `postgres@raspberrypi:/home/pi$ psql`
+5. Create test database: `postgres=# create database test;`
+    - go back to pi shell `pi@pi` using `exit` -> Enter -> `exit` -> Enter
+6. Direct connect to test database: `pi@pi:~$ psql test`
 
-### Further dependency handling and [docker compose](https://docs.docker.com/compose/)
-1. `sudo apt-get install libffi-dev`
-2. `sudo apt-get remove python-configparser`
-3. `sudo pip install docker-compose`
+### PostgreSQL remote access
+1. Edit `pi@pi:~$ sudo vim /etc/postgresql/11/main/postgresql.conf` and uncomment line `listen_addresses` and change value `'localhost'` to `'*'`
+2. Edit `pi@pi:~$ sudo vim /etc/postgresql/11/main/pg_hba.conf` and change settings
+    - IPv4 `127.0.0.1/32` to `0.0.0.0/0`
+    - IPv6 `::1/128` to `::/0`
+3. Restart service: `pi@pi:~$ sudo service postgresql restart`

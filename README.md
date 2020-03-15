@@ -32,7 +32,7 @@ Model           : Raspberry Pi Model B Rev 2
 ## [PostgreSQL](https://www.postgresql.org/)
 1. Install packages: `pi@pi:~$ sudo apt install postgresql libpq-dev postgresql-client postgresql-client-common -y`
 2. Switch to postgres user: `pi@pi:~$ sudo su postgres`
-3. Create new user: `postgres@raspberrypi:/home/pi$ createuser YOUR_NEW_USER -P --interactive`
+3. Create new user: `postgres@raspberrypi:/home/pi$ createuser pi -P --interactive`
     - enter password
     - **n** for superuser
     - **y** for the last two options (create database / new roles)

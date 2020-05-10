@@ -67,6 +67,12 @@ Model           : Raspberry Pi 4 Model B Rev 1.1
     - make it your default shell: `pi@pi:~$ chsh -s /bin/zsh`
 2. Install oh-my-zsh `pi@pi:~$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"` 
 
+## [Docker](https://www.docker.com/)
+1. Get installation script: `pi@pi:~$ curl -fsSL https://get.docker.com -o get-docker.sh`
+2. Execute script: `pi@pi:~$ sudo sh get-docker.sh`
+3. (optional) - add pi user for non-root execution: `pi@pi:~$ sudo usermod -aG docker pi`
+    - maybe reboot to make changes available
+4. check installation: `pi@pi:~$ docker run hello-world`
 
 ## [PostgreSQL](https://www.postgresql.org/)
 1. Install packages: `pi@pi:~$ sudo apt install postgresql libpq-dev postgresql-client postgresql-client-common -y`

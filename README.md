@@ -51,14 +51,22 @@ Serial          : 10000000ab4c5d7d
 Model           : Raspberry Pi 4 Model B Rev 1.1
 
 ```
-* SD-Card 16 GB
-* Power supply 5V@1A
+* Micro SD 16 GB
+* Power supply 5V@3A
+* further material: https://www.amazon.de/gp/product/B07TYW63M8
 
 ## Setup & Configuring OS
 1. Install Raspbian Desktop with [NOOBS](https://www.raspberrypi.org/downloads/noobs/)
 2. Enable [SSH server](https://www.raspberrypi.org/documentation/remote-access/ssh/)
 3. Improve [SSH security](https://www.raspberrypi.org/documentation/configuration/security.md) adding new user and remove pi user
 4. Update packages: `pi@pi:~$ sudo apt-get update && sudo apt-get upgrade`
+5. (optional): `pi@pi:~$ sudo apt-get install vim`
+
+## [Oh My Zsh](https://ohmyz.sh/)
+1. Install zsh `pi@pi:~$ sudo apt-get install git zsh`
+    - make it your default shell: `pi@pi:~$ chsh -s /bin/zsh`
+2. Install oh-my-zsh `pi@pi:~$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"` 
+
 
 ## [PostgreSQL](https://www.postgresql.org/)
 1. Install packages: `pi@pi:~$ sudo apt install postgresql libpq-dev postgresql-client postgresql-client-common -y`
